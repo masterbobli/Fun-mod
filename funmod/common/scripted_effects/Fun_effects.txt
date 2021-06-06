@@ -1,0 +1,584 @@
+MAN_uni = {
+	MAN = {
+		every_state = {
+			limit = { is_core_of = CHI }
+			add_core_of = MAN
+			MAN = { transfer_state = PREV }
+		}
+	}
+}
+
+GRE_greater = {
+	GRE = {
+		activate_decision = form_greater_greece
+		activate_decision = rename_antalya
+		activate_decision = rename_gjirokaster
+		random_list = {
+			1 = { activate_decision = move_capital_to_thessaloniki }
+			1 = { activate_decision = move_capital_to_constantinople }
+		}
+	}
+	every_state = {
+		limit = { is_core_of = GRE }
+		GRE = { transfer_state = PREV }
+		set_demilitarized_zone = no
+	}
+}
+
+GRE_mac = {
+	GRE = {
+		activate_decision = form_macedonian_empire
+	}
+	every_state = {
+		limit = { is_core_of = GRE }
+		GRE = { transfer_state = PREV }
+		set_demilitarized_zone = no
+	}
+}
+
+GRE_byz = {
+	GRE = {
+		activate_decision = byz_restore_byzantium
+		activate_decision = byz_triumph_for_the_balkans
+		activate_decision = byz_triumph_for_italy
+		activate_decision = byz_triumph_for_middle_east
+		activate_decision = byz_triumph_for_egypt_and_tunis
+	}
+	every_state = {
+		limit = { is_core_of = GRE }
+		GRE = { transfer_state = PREV }
+		set_demilitarized_zone = no
+	}
+}
+
+TUR_ott = {
+	TUR = {
+		activate_decision = form_ottoman_empire
+		activate_decision = ott_reform_the_eyalet_of_rumelia
+		activate_decision = ott_merge_the_eyalets_of_morea_crete_and_kibris
+		activate_decision = ott_enlarge_the_vilayet_of_bosnia
+		activate_decision = ott_restore_the_vilayet_of_the_danube_and_moldova
+		activate_decision = ott_restore_the_vilayet_of_halep
+		activate_decision = ott_restore_the_vilayet_of_beirut
+		activate_decision = ott_restore_the_vilayet_of_baghdad
+		activate_decision = ott_extend_the_lasha_eyalet
+		activate_decision = ott_merge_the_eyalets_of_jeddah_habesh_and_yemen
+		activate_decision = ott_integrate_the_khedivate_of_egypt
+		activate_decision = ott_restore_the_vilayet_of_tripolitania
+		activate_decision = ott_absorb_the_tunis_and_algerian_eyalets
+		transfer_core = yes
+	}
+}
+
+TUR_tur = {
+	TUR = {
+		add_state_core = 184
+		add_state_core = 229
+		add_state_core = 231
+		add_state_core = 420
+		add_state_core = 419
+		add_state_core = 417
+		add_state_core = 164
+		add_state_core = 183
+		activate_decision = form_turan
+		activate_decision = integrate_the_magyars
+		activate_decision = assimilate_the_chinese_turks
+		activate_decision = unite_with_the_finno_ugrians
+	}
+	every_state = {
+		limit = {
+			OR = {
+				is_core_of = TUR
+				has_dynamic_modifier = {
+					modifier = turanist_assimilation
+				}
+			}
+		}
+		TUR = { transfer_state = PREV }
+	}
+}
+
+BUL_uni = { # 81 States
+	BUL = {
+		TUR = {
+			add_state_core = 184
+			add_state_core = 229
+			add_state_core = 231
+			add_state_core = 420
+			add_state_core = 419
+			add_state_core = 417
+			add_state_core = 164
+			add_state_core = 183
+			activate_decision = form_turan
+		}
+		GRE = {
+			activate_decision = byz_triumph_for_italy
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = CRO
+			}
+			CRO = { transfer_state = PREV }
+		}
+
+		CRO = {
+			activate_decision = form_austria_hungary
+		}
+
+		every_state = {
+			limit = {
+				BUL_is_balkan_state = yes
+				NOT = { is_core_of = ROOT }
+			}
+			hidden_effect = {
+				ROOT = { add_state_core = PREV }
+				if = {
+					limit = {
+						is_claimed_by = ROOT
+					}
+					remove_claim_by = ROOT
+				}
+			}
+		}
+
+		every_other_country = {
+			limit = {
+				BUL_is_balkan_nation = yes
+			}
+			every_unit_leader = {
+				set_nationality = BUL
+			}
+			BUL = { annex_country = { target = PREV transfer_troops = yes } }
+		}
+		
+		
+		set_country_flag = BUL_ubf_flag
+		BUL_set_appropriate_cosmetic_tag = yes
+
+		BUL = { transfer_core = yes }
+
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = TUR
+					has_dynamic_modifier = {
+						modifier = turanist_assimilation
+					}
+				}
+				NOT = { is_core_of = BUL }
+			}
+			TUR = { transfer_state = PREV }
+		}
+
+		every_owned_State = {
+			set_demilitarized_zone = no
+		}
+	}
+}
+
+POR_bra = {
+	POR = {
+		every_state = {
+			limit = { is_core_of = BRA }
+			add_core_of = POR
+		}
+		annex_country = { 
+			target = BRA
+			transfer_troops = yes
+		}
+		hidden_effect = {
+			set_cosmetic_tag = KPB_kingdom_portugal_and_brazil	
+		}
+	}
+}
+
+SPR_por = {
+	POR = {
+		add_state_core = 540
+		add_state_core = 796
+		add_state_core = 544
+	}
+	SPR = {
+		set_cosmetic_tag = ESU_POR_unified
+		every_state = {
+			limit = {
+				is_core_of = POR
+			}
+			add_core_of = SPR
+		}
+		annex_country = { target = POR transfer_troops = yes }
+	}
+}
+
+ALG_adu = {
+	FRA = { release = ALG }
+	ALG = {
+		activate_decision = form_andalusia
+		activate_decision = adu_restore_sultanate_of_africa
+		activate_decision = adu_mediterrenean_emirates
+		activate_decision = adu_restore_umayyad_caliphate
+		activate_decision = adu_recreate_rashid_expansion
+		activate_decision = adu_northern_expansion
+		transfer_core = yes
+	}
+}
+
+SYR_ara = {
+	FRA = { release = SYR }
+	SYR = {
+		activate_decision = form_arabia
+		transfer_core = yes
+	}
+}
+
+FRA_union = {
+	every_state = {
+		limit = {
+			OR = {
+				is_core_of = ALG
+				is_core_of = TUN
+				is_core_of = MOR
+				is_core_of = SEN
+				is_core_of = MRT
+				is_core_of = GNA
+				is_core_of = MLI
+				is_core_of = IVO
+				is_core_of = VOL
+				is_core_of = NGR
+				is_core_of = DAH
+				is_core_of = TOG
+				is_core_of = CHA
+				is_core_of = CMR
+				is_core_of = CAR
+				is_core_of = RCG
+				is_core_of = GAB
+				is_core_of = SYR
+				is_core_of = LEB
+				is_core_of = VIN
+				is_core_of = LAO
+				is_core_of = CAM
+			}
+		}
+		add_core_of = FRA
+		FRA = {
+			transfer_state = PREV
+		}
+	}
+}
+
+FRA_spr = {
+	FRA = {
+		annex_country = { target = SPR transfer_troops = yes }
+		every_state = {
+			limit = {
+				is_core_of = SPR
+			}
+			add_core_of = FRA
+		}
+		add_stability = -0.1
+		set_cosmetic_tag = FRANCO_SPAIN
+	}
+}
+
+FRA_max = {
+	POR_bra = yes
+	SPR_por = yes
+	ALG_adu = yes
+	SYR_ara = yes
+	FRA_union = yes
+	FRA_spr = yes
+}
+
+USA_max = {
+	USA = {
+		add_state_core = 463
+		add_state_core = 650
+		add_state_core = 629
+		add_state_core = 686
+	}
+
+}
+
+CAN_max = {
+	ENG = { release = CAN }
+	CAN = {
+		drop_cosmetic_tag = yes
+		set_cosmetic_tag = CAN_north_america_dominion
+		every_state = {
+			limit = {
+				is_core_of = USA
+			}
+			CAN = { transfer_state = PREV }
+			add_core_of = PREV
+		}
+	}
+}
+
+NZL_max = {
+	NZL = {
+		activate_decision = form_polynesia
+		transfer_core = yes
+	}
+}
+
+SAF_max = {
+	SAF = {
+		activate_decision = form_mutapa
+		transfer_core = yes
+	}
+}
+
+ENG_fed = {
+	ENG = {
+		complete_national_focus = uk_empire_focus
+		CAN = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = CAN
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = CAN
+			}
+			add_core_of = ENG
+		}
+		SAF = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = SAF
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = SAF
+				NOT = { state = 275 }
+			}
+			add_core_of = ENG
+		}
+		RAJ = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = RAJ
+			transfer_troops = yes
+		}
+		AST = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = AST
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = AST
+			}
+			add_core_of = ENG
+		}
+		NZL = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = NZL
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = NZL
+			}
+			add_core_of = ENG
+		}
+		MAL = {
+			every_unit_leader = {
+				set_nationality = ENG
+			}
+		}
+		annex_country = {
+			target = MAL
+			transfer_troops = yes
+		}
+		set_cosmetic_tag = ENG_imperial_federation_india_unified
+	}
+}
+
+ENG_mxf = {
+	USA_max = yes
+	CAN_max = yes
+	NZL_max = yes
+	SAF_max = yes
+	ENG_fed = yes
+	ENG = {
+		113 = { add_core_of = ENG }
+		134 = { add_core_of = ENG }
+		135 = { add_core_of = ENG }
+		transfer_core = yes
+	}
+}
+
+ENG_max = {
+	FRA_max = yes
+	ENG_mxf = yes
+	ENG = { activate_decision = form_european_union }
+	every_state = {
+		limit = {
+			is_core_of = FRA
+		}
+		ENG = {
+			add_state_core = PREV
+		}
+	}
+	FRA = {
+		every_unit_leader = {
+			set_unit_leader_flag = flag_former_french_general
+			set_nationality = ENG
+		}
+	}
+	ENG = {
+		annex_country = { target = FRA transfer_troops = yes }
+		set_cosmetic_tag = FRA_UK
+		transfer_core = yes
+	}
+}
+
+ITA_max = {
+	ITA = {
+		activate_decision = form_roman_empire
+		activate_decision = form_european_union
+		transfer_core = yes
+	}
+}
+
+YUG_max = {
+	YUG = {
+		BUL = {
+			TUR = {
+				add_state_core = 184
+				add_state_core = 229
+				add_state_core = 231
+				add_state_core = 420
+				add_state_core = 419
+				add_state_core = 417
+				add_state_core = 164
+				add_state_core = 183
+				activate_decision = form_turan
+			}
+			GRE = {
+				activate_decision = byz_triumph_for_italy
+			}
+
+			every_state = {
+				limit = {
+					BUL_is_balkan_state = yes
+					NOT = { is_core_of = BUL }
+				}
+				hidden_effect = {
+					add_core_of = BUL
+					if = {
+						limit = {
+							is_claimed_by = BUL
+						}
+						remove_claim_by = BUL
+					}
+				}
+			}
+
+			every_other_country = {
+				limit = {
+					BUL_is_balkan_nation = yes
+					NOT = { tag = YUG }
+				}
+				every_unit_leader = {
+					set_nationality = BUL
+				}
+				BUL = { annex_country = { target = PREV transfer_troops = yes } }
+			}
+			
+			
+			set_country_flag = BUL_ubf_flag
+			BUL_set_appropriate_cosmetic_tag = yes
+
+			BUL = { transfer_core = yes }
+
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = TUR
+						has_dynamic_modifier = {
+							modifier = turanist_assimilation
+						}
+					}
+					NOT = { is_core_of = BUL }
+				}
+				TUR = { transfer_state = PREV }
+			}
+
+			every_owned_State = {
+				set_demilitarized_zone = no
+			}
+		}
+		HUN = {
+			activate_decision = form_austria_hungary
+		}
+		every_state = {
+			limit = { 
+				OR = {
+					is_core_of = HUN
+					is_core_of = BUL
+				}
+			}
+			add_core_of = YUG
+		}
+		YUG = {
+			annex_country = {
+				target = BUL
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = HUN
+				transfer_troops = yes
+			}
+			transfer_core = yes
+		}
+		every_owned_State = {
+			set_demilitarized_zone = no
+		}
+	}
+}
+
+transfer_core = {
+	every_state = {
+		limit = {
+			is_core_of = PREV
+		}
+		PREV = { transfer_state = PREV }
+	}
+}
+
+release_slv = {
+	release = SLV
+	set_autonomy = { target = SLV autonomy_state = autonomy_integrated_puppet }
+}
+
+add_huge_comp = {
+	every_owned_State = {
+		add_compliance = 100
+	}
+}
+
+set_major_effects = {
+	set_major = yes
+}
