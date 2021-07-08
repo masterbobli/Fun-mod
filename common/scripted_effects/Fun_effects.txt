@@ -454,6 +454,19 @@ ENG_max = {
 	}
 }
 
+ITA_rmn = {
+	ITA = {
+		activate_decision = form_roman_empire
+		every_state = {
+			limit = {
+				is_core_of = PREV
+				NOT = { is_core_of = GRE}
+			}
+			PREV = { transfer_state = PREV }
+		}
+	}
+}
+
 ITA_max = {
 	ITA = {
 		activate_decision = form_roman_empire
@@ -573,12 +586,145 @@ release_slv = {
 	set_autonomy = { target = SLV autonomy_state = autonomy_integrated_puppet }
 }
 
-add_huge_comp = {
+add_max_comp = {
 	every_owned_State = {
 		add_compliance = 100
+	}
+}
+
+add_max_resistance = {
+	every_state = {
+		add_resistance = 100
 	}
 }
 
 set_major_effects = {
 	set_major = yes
 }
+
+GER_hre = {
+	GER = {
+		activate_decision = form_hre
+		transfer_core = yes
+	}
+}
+
+No_unit = {
+	every_state = {
+		every_country = {
+			delete_unit = { 
+				state = PREV
+				disband = yes
+			}
+		}
+	}
+}
+
+ENG_enforce_loyalty_all = {
+	every_country = {
+		limit = {
+			has_country_flag = ENG_abdication_crisis_dominion_will_leave
+		}
+		clr_country_flag = ENG_abdication_crisis_dominion_will_leave
+		set_country_flag = ENG_abdication_crisis_dominion_will_stay
+		CAN = { CAN_enforce_loyalty = yes }
+		SAF = { SAF_enforce_loyalty = yes }
+		NZL = { NZL_enforce_loyalty = yes }
+		AST = { AST_enforce_loyalty = yes }
+		RAJ = { RAJ_enforce_loyalty = yes }
+	}
+}
+
+WGR_EU = {
+	WGR = {
+		activate_decision = form_european_union
+		transfer_core = yes
+	}
+}
+
+GDC_max = {
+	every_state = {
+		limit = {
+			OR = {
+				AND = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					OR = {
+						is_island_state = yes
+						any_neighbor_state = {
+							is_core_of = ROOT
+						}
+					}
+					OR = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+						NOT = {
+							state = 41
+							state = 165
+							state = 166
+							state = 167
+							state = 168
+							state = 169
+							state = 170
+							state = 171
+							state = 172
+							state = 173
+							state = 174
+							state = 175
+							state = 176
+							state = 788
+							state = 789
+							state = 790
+							state = 791
+							state = 792
+							state = 793
+							state = 794
+						}
+					}
+				}
+				AND = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					NOT = {
+						is_island_state = yes
+						any_neighbor_state = {
+							is_core_of = ROOT
+						}
+					}
+					OR = {
+						NOT = {
+							is_owned_by = ROOT
+						}
+						NOT = {
+							state = 41
+							state = 165
+							state = 166
+							state = 167
+							state = 168
+							state = 169
+							state = 170
+							state = 171
+							state = 172
+							state = 173
+							state = 174
+							state = 175
+							state = 176
+							state = 788
+							state = 789
+							state = 790
+							state = 791
+							state = 792
+							state = 793
+							state = 794
+						}
+					}
+				}
+			}
+		}
+		add_core_of = SPR
+	}
+}
+
