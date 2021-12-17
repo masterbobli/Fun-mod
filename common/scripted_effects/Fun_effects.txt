@@ -728,3 +728,221 @@ GDC_max = {
 	}
 }
 
+restore_ww1_map = {
+	every_state = {
+		set_demilitarized_zone = no
+	}
+	#GER
+	every_state = {
+		limit = {
+			OR = {
+				state = 28
+				state = 85
+				state = 86
+				state = 762
+				state = 188
+			}
+		}
+		GER = {
+			transfer_state = PREV
+			add_state_core = PREV
+		}
+	}
+	every_state = {
+		limit = {
+			OR = {
+				state = 546
+				state = 541
+				state = 777
+				state = 768
+				state = 769
+				state = 773
+				state = 646
+				state = 647
+				state = 633
+				state = 684`
+			}
+		}
+		GER = {
+			transfer_state = PREV
+		}
+	}
+
+	#AUS
+	AUS = {
+		activate_decision = form_austria_hungary
+		add_state_core = 804
+		add_state_core = 80
+		add_state_core = 88
+		add_state_core = 89
+		add_state_core = 91
+		transfer_core = yes
+	}
+	106 = {
+		add_core_of = SER
+	}
+	YUG = {
+		release = MNT
+		release = SER
+	}
+
+	GRE = {
+		transfer_state = 164
+	}
+
+	# TUR
+	every_state = {
+		limit = {
+			OR = {
+				is_core_of = SYR
+				is_core_of = LEB
+				is_core_of = PAL
+				is_core_of = JOR
+				state = 679
+				state = 293
+				state = 676
+				state = 291
+			}
+		}
+		TUR = {
+			transfer_state = PREV
+			add_state_core = PREV
+		}
+	}
+
+	#ENG
+	every_state = {
+		limit = {
+			is_core_of = IRE
+		}
+		ENG = {
+			transfer_state = PREV
+			add_state_core = PREV
+		}
+	}
+
+	#SOV
+
+	every_state = {
+		limit = {
+			OR = {
+				AND = {
+					is_core_of = POL
+					is_owned_by = POL
+				}
+				AND = {
+					is_core_of = LIT
+					is_owned_by = LIT
+				}
+				is_core_of = LAT
+				is_core_of = EST
+				is_core_of = FIN
+			}
+		}
+		SOV = {
+			transfer_state = PREV
+			add_state_core = PREV
+		}
+	}
+
+	#MAN
+	every_state = {
+		limit = {
+			OR = {
+				is_core_of = CHI
+				is_core_of = MON
+				is_core_of = TIB
+				is_core_of = TAN
+			}
+		}
+		MAN = {
+			add_state_core = PREV
+		}
+	}
+	every_state = {
+		limit = {
+			is_core_of = MAN
+			NOT = {
+				state = 326
+				state = 729
+				state = 728
+				state = 745
+				state = 524
+			}
+		}
+		MAN = {
+			transfer_state = PREV
+		}
+	}
+	MAN = {
+		set_capital = 608
+	}
+	
+}
+
+POL_SLA = {
+	every_state = {
+		limit = {
+			OR = {
+				is_core_of = POL
+				is_core_of = SIL
+				is_core_of = KSH
+				is_core_of = UKR
+				is_core_of = BLR
+				AND = {
+					is_core_of = SOV
+					NOT = {
+						OR = {
+							is_core_of = AZR
+							is_core_of = GEO
+							is_core_of = ARM
+							is_core_of = TMS
+							is_core_of = UZB
+							is_core_of = KAZ
+							is_core_of = TAJ
+							is_core_of = KYR
+						}
+					}
+				}
+				is_core_of = YUG
+				is_core_of = BUL
+				is_core_of = CZE
+				is_core_of = SLO
+				state = 5
+				state = 763
+			}
+		}
+		add_core_of = POL
+	}
+	POL = {
+		set_cosmetic_tag = SLAVIC_UNIFIED
+	}
+}
+
+POL_max = {
+	BUL = {
+		BUL_uni = yes
+	}
+
+	POL = {
+		activate_decision = form_commonwealth
+		67 = { add_core_of = PREV }
+		66 = { add_core_of = PREV }
+		68 = { add_core_of = PREV }
+		63 = { add_core_of = PREV }
+		5 = { add_core_of = PREV }
+		763 = { add_core_of = PREV }
+
+		537 = {
+			add_core_of = PREV
+		}
+		555 = {
+			add_core_of = PREV
+		}
+		536 = {
+			add_core_of = PREV
+		}
+		POL_SLA = yes
+		transfer_core = yes
+	}
+}

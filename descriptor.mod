@@ -1,6 +1,6 @@
-version="1.0.1"
+version="1.0"
 tags={
 	"Utilities"
 }
-name="Fun mod"
-supported_version="1.10.7"
+name="Fun Mod"
+supported_version="1.11.x"
