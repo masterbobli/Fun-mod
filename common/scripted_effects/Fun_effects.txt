@@ -8,6 +8,17 @@ MAN_uni = {
 	}
 }
 
+SIK_max = {
+	SIK = {
+		every_state = {
+			limit = { is_core_of = CHI }
+			add_core_of = SIK
+		}
+		activate_decision = form_turkestan
+	}
+	transfer_core = yes
+}
+
 GRE_greater = {
 	GRE = {
 		activate_decision = form_greater_greece
@@ -944,5 +955,13 @@ POL_max = {
 		}
 		POL_SLA = yes
 		transfer_core = yes
+	}
+}
+
+EST_puppet = {
+	EST = {
+		puppet = SWE
+		puppet = NOR
+		puppet = DEN
 	}
 }
