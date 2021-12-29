@@ -292,13 +292,47 @@ FRA_spr = {
 	}
 }
 
+SPR_fra = {
+
+	FRA = {
+		every_unit_leader = {
+			set_nationality = SPR
+		}
+	}
+	every_state = {
+		limit = {
+			is_core_of = FRA
+		}
+		add_core_of = SPR
+	}
+	SPR = { annex_country = { target = FRA transfer_troops = yes } }
+}
+
+FRA_eu = {
+	FRA = {
+		activate_decision = form_european_union
+		transfer_core = yes
+	}
+}
+
 FRA_max = {
 	POR_bra = yes
 	SPR_por = yes
 	ALG_adu = yes
 	SYR_ara = yes
 	FRA_union = yes
+	FRA_eu = yes
 	FRA_spr = yes
+}
+
+SPR_max = {
+	POR_bra = yes
+	SPR_por = yes
+	ALG_adu = yes
+	SYR_ara = yes
+	FRA_union = yes
+	FRA_eu = yes
+	SPR_fra = yes
 }
 
 USA_max = {
@@ -737,6 +771,10 @@ GDC_max = {
 		}
 		add_core_of = SPR
 	}
+	SPR = {
+		set_cosmetic_tag = SPC_global_defense_council
+		transfer_core = yes
+	}
 }
 
 restore_ww1_map = {
@@ -752,6 +790,7 @@ restore_ww1_map = {
 				state = 86
 				state = 762
 				state = 188
+				state = 807
 			}
 		}
 		GER = {
@@ -771,7 +810,8 @@ restore_ww1_map = {
 				state = 646
 				state = 647
 				state = 633
-				state = 684`
+				state = 684
+				state = 743
 			}
 		}
 		GER = {
@@ -879,6 +919,7 @@ restore_ww1_map = {
 				state = 728
 				state = 745
 				state = 524
+				state = 743
 			}
 		}
 		MAN = {
@@ -886,7 +927,14 @@ restore_ww1_map = {
 		}
 	}
 	MAN = {
-		set_capital = 608
+		set_cosmetic_tag = MAN_restored
+		set_capital = { state = 608 }
+		overlord = {
+			set_autonomy = {
+				target = MAN
+				autonomy_state = autonomy_free
+			}
+		}
 	}
 	
 }
@@ -933,6 +981,21 @@ POL_SLA = {
 POL_max = {
 	BUL = {
 		BUL_uni = yes
+	}
+	GER = {
+		activate_decision = GER_reichskommissariat_ostland
+	}
+	SOV = {
+		every_owned_State = {
+			remove_core_of = AZR
+			remove_core_of = GEO
+			remove_core_of = ARM
+			remove_core_of = TMS
+			remove_core_of = UZB
+			remove_core_of = KAZ
+			remove_core_of = TAJ
+			remove_core_of = KYR
+		}
 	}
 
 	POL = {
