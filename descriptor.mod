@@ -3,4 +3,4 @@ tags={
 	"Utilities"
 }
 name="Fun Mod"
-supported_version="1.11.x"
+supported_version="1.12.*"

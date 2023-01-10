@@ -1021,10 +1021,124 @@ POL_max = {
 	}
 }
 
-EST_puppet = {
+EST_max = {
+	FIN = {
+		activate_decision = form_nordic_league
+	}
 	EST = {
-		puppet = SWE
-		puppet = NOR
-		puppet = DEN
+		activate_decision = form_baltic_federation
+		annex_country = {
+			target = FIN
+			transfer_troops = yes
+		}
+		set_cosmetic_tag = EST_FIN
+		every_state = {
+			limit = {
+				is_core_of = FIN
+			}
+			add_core_of = EST
+		}
+		set_cosmetic_tag = EST_UGRA
+		143 = {
+			add_core_of = PREV
+		}
+		144 = {
+			add_core_of = PREV
+		}
+		666 = {
+			add_core_of = PREV
+		}
+		213 = {
+			add_core_of = PREV
+		}
+		215 = {
+			add_core_of = PREV
+		}
+		216 = {
+			add_core_of = PREV
+		}
+		214 = {
+			add_core_of = PREV
+		}
+		262 = {
+			add_core_of = PREV
+		}
+		580 = {
+			add_core_of = PREV
+		}
+		581 = {
+			add_core_of = PREV
+		}
+		579 = {
+			add_core_of = PREV
+		}
+		653 = {
+			add_core_of = PREV
+		}
+		573 = {
+			add_core_of = PREV
+		}
+		397 = {
+			add_core_of = PREV
+		}
+		398 = {
+			add_core_of = PREV
+		}
+		400 = {
+			add_core_of = PREV
+		}
+		351 = {
+			add_core_of = PREV
+		}
+		208 = {
+			add_core_of = PREV
+		}
+		transfer_core = yes
+	}
+}
+
+ITA_core = {
+	every_state = {
+		limit = {
+			OR = {
+				ITA_state_is_in_north_africa = yes
+				ITA_state_is_in_east_africa = yes
+				ITA_state_is_in_west_africa = yes
+				ITA_state_is_in_central_africa = yes
+				ITA_state_is_in_south_africa = yes
+				ITA_state_is_in_middle_east = yes
+			}
+		}
+		ITA = {
+			transfer_state = PREV
+		}
+	}
+
+	ITA = {
+		country_event = { id = BBA_italy_anti_colonialism_events.52 }
+		country_event = { id = BBA_italy_anti_colonialism_events.54 }
+		country_event = { id = BBA_italy_anti_colonialism_events.56 }
+		country_event = { id = BBA_italy_anti_colonialism_events.58 }
+		country_event = { id = BBA_italy_anti_colonialism_events.60 }
+		country_event = { id = BBA_italy_anti_colonialism_events.62 }
+		transfer_core = yes
+	}
+}
+
+ETH_africa_union = {
+	every_state = {
+		limit = {is_on_continent = africa}
+		add_core_of = ETH
+	}
+	ETH = {
+		transfer_core = yes
+	}
+}
+
+No_resource = {
+	every_state = {
+		add_dynamic_modifier = {
+			modifier = disabled_resources
+		}
 	}
 }
