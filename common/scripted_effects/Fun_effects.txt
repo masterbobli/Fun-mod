@@ -1,3 +1,12 @@
+transfer_core = {
+	every_state = {
+		limit = {
+			is_core_of = PREV
+		}
+		PREV = { transfer_state = PREV }
+	}
+}
+
 MAN_uni = {
 	MAN = {
 		every_state = {
@@ -617,15 +626,6 @@ YUG_max = {
 	}
 }
 
-transfer_core = {
-	every_state = {
-		limit = {
-			is_core_of = PREV
-		}
-		PREV = { transfer_state = PREV }
-	}
-}
-
 release_slv = {
 	release = SLV
 	set_autonomy = { target = SLV autonomy_state = autonomy_integrated_puppet }
@@ -677,13 +677,6 @@ ENG_enforce_loyalty_all = {
 		NZL = { NZL_enforce_loyalty = yes }
 		AST = { AST_enforce_loyalty = yes }
 		RAJ = { RAJ_enforce_loyalty = yes }
-	}
-}
-
-WGR_EU = {
-	WGR = {
-		activate_decision = form_european_union
-		transfer_core = yes
 	}
 }
 
@@ -1222,5 +1215,13 @@ instantiate_collaboration_government = {
 			add_core_of = var:country_to_initiate
 		}
 
+	}
+}
+
+SWI_coring = {
+	every_state = {
+		every_neighbor_state = {
+			add_core_of = SWI
+		}
 	}
 }
