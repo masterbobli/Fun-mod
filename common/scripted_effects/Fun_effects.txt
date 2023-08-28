@@ -3,16 +3,22 @@ transfer_core = {
 		limit = {
 			is_core_of = PREV
 		}
-		PREV = { transfer_state = PREV }
+		PREV = {
+			transfer_state = PREV
+		}
 	}
 }
 
 MAN_uni = {
 	MAN = {
 		every_state = {
-			limit = { is_core_of = CHI }
+			limit = {
+				is_core_of = CHI
+			}
 			add_core_of = MAN
-			MAN = { transfer_state = PREV }
+			MAN = {
+				transfer_state = PREV
+			}
 		}
 	}
 }
@@ -20,7 +26,9 @@ MAN_uni = {
 SIK_max = {
 	SIK = {
 		every_state = {
-			limit = { is_core_of = CHI }
+			limit = {
+				is_core_of = CHI
+			}
 			add_core_of = SIK
 		}
 		activate_decision = form_turkestan
@@ -34,13 +42,21 @@ GRE_greater = {
 		activate_decision = rename_antalya
 		activate_decision = rename_gjirokaster
 		random_list = {
-			1 = { activate_decision = move_capital_to_thessaloniki }
-			1 = { activate_decision = move_capital_to_constantinople }
+			1 = {
+				activate_decision = move_capital_to_thessaloniki
+			}
+			1 = {
+				activate_decision = move_capital_to_constantinople
+			}
 		}
 	}
 	every_state = {
-		limit = { is_core_of = GRE }
-		GRE = { transfer_state = PREV }
+		limit = {
+			is_core_of = GRE
+		}
+		GRE = {
+			transfer_state = PREV
+		}
 		set_demilitarized_zone = no
 	}
 }
@@ -50,8 +66,12 @@ GRE_mac = {
 		activate_decision = form_macedonian_empire
 	}
 	every_state = {
-		limit = { is_core_of = GRE }
-		GRE = { transfer_state = PREV }
+		limit = {
+			is_core_of = GRE
+		}
+		GRE = {
+			transfer_state = PREV
+		}
 		set_demilitarized_zone = no
 	}
 }
@@ -65,8 +85,12 @@ GRE_byz = {
 		activate_decision = byz_triumph_for_egypt_and_tunis
 	}
 	every_state = {
-		limit = { is_core_of = GRE }
-		GRE = { transfer_state = PREV }
+		limit = {
+			is_core_of = GRE
+		}
+		GRE = {
+			transfer_state = PREV
+		}
 		set_demilitarized_zone = no
 	}
 }
@@ -114,11 +138,14 @@ TUR_tur = {
 				}
 			}
 		}
-		TUR = { transfer_state = PREV }
+		TUR = {
+			transfer_state = PREV
+		}
 	}
 }
 
-BUL_uni = { # 81 States
+BUL_uni = {
+	# 81 States
 	BUL = {
 		TUR = {
 			add_state_core = 184
@@ -134,25 +161,28 @@ BUL_uni = { # 81 States
 		GRE = {
 			activate_decision = byz_triumph_for_italy
 		}
-
 		every_state = {
 			limit = {
 				is_core_of = CRO
 			}
-			CRO = { transfer_state = PREV }
+			CRO = {
+				transfer_state = PREV
+			}
 		}
-
 		CRO = {
 			activate_decision = form_austria_hungary
 		}
-
 		every_state = {
 			limit = {
 				BUL_is_balkan_state = yes
-				NOT = { is_core_of = ROOT }
+				NOT = {
+					is_core_of = ROOT
+				}
 			}
 			hidden_effect = {
-				ROOT = { add_state_core = PREV }
+				ROOT = {
+					add_state_core = PREV
+				}
 				if = {
 					limit = {
 						is_claimed_by = ROOT
@@ -161,7 +191,6 @@ BUL_uni = { # 81 States
 				}
 			}
 		}
-
 		every_other_country = {
 			limit = {
 				BUL_is_balkan_nation = yes
@@ -169,15 +198,18 @@ BUL_uni = { # 81 States
 			every_unit_leader = {
 				set_nationality = BUL
 			}
-			BUL = { annex_country = { target = PREV transfer_troops = yes } }
+			BUL = {
+				annex_country = {
+					target = PREV
+					transfer_troops = yes
+				}
+			}
 		}
-		
-		
 		set_country_flag = BUL_ubf_flag
 		BUL_set_appropriate_cosmetic_tag = yes
-
-		BUL = { transfer_core = yes }
-
+		BUL = {
+			transfer_core = yes
+		}
 		every_owned_state = {
 			limit = {
 				OR = {
@@ -186,11 +218,14 @@ BUL_uni = { # 81 States
 						modifier = turanist_assimilation
 					}
 				}
-				NOT = { is_core_of = BUL }
+				NOT = {
+					is_core_of = BUL
+				}
 			}
-			TUR = { transfer_state = PREV }
+			TUR = {
+				transfer_state = PREV
+			}
 		}
-
 		every_owned_State = {
 			set_demilitarized_zone = no
 		}
@@ -200,15 +235,17 @@ BUL_uni = { # 81 States
 POR_bra = {
 	POR = {
 		every_state = {
-			limit = { is_core_of = BRA }
+			limit = {
+				is_core_of = BRA
+			}
 			add_core_of = POR
 		}
-		annex_country = { 
+		annex_country = {
 			target = BRA
 			transfer_troops = yes
 		}
 		hidden_effect = {
-			set_cosmetic_tag = KPB_kingdom_portugal_and_brazil	
+			set_cosmetic_tag = KPB_kingdom_portugal_and_brazil
 		}
 	}
 }
@@ -227,12 +264,17 @@ SPR_por = {
 			}
 			add_core_of = SPR
 		}
-		annex_country = { target = POR transfer_troops = yes }
+		annex_country = {
+			target = POR
+			transfer_troops = yes
+		}
 	}
 }
 
 ALG_adu = {
-	FRA = { release = ALG }
+	FRA = {
+		release = ALG
+	}
 	ALG = {
 		activate_decision = form_andalusia
 		activate_decision = adu_restore_sultanate_of_africa
@@ -245,7 +287,9 @@ ALG_adu = {
 }
 
 SYR_ara = {
-	FRA = { release = SYR }
+	FRA = {
+		release = SYR
+	}
 	SYR = {
 		activate_decision = form_arabia
 		transfer_core = yes
@@ -289,7 +333,10 @@ FRA_union = {
 
 FRA_spr = {
 	FRA = {
-		annex_country = { target = SPR transfer_troops = yes }
+		annex_country = {
+			target = SPR
+			transfer_troops = yes
+		}
 		every_state = {
 			limit = {
 				is_core_of = SPR
@@ -302,7 +349,6 @@ FRA_spr = {
 }
 
 SPR_fra = {
-
 	FRA = {
 		every_unit_leader = {
 			set_nationality = SPR
@@ -314,7 +360,12 @@ SPR_fra = {
 		}
 		add_core_of = SPR
 	}
-	SPR = { annex_country = { target = FRA transfer_troops = yes } }
+	SPR = {
+		annex_country = {
+			target = FRA
+			transfer_troops = yes
+		}
+	}
 }
 
 FRA_eu = {
@@ -351,11 +402,12 @@ USA_max = {
 		add_state_core = 629
 		add_state_core = 686
 	}
-
 }
 
 CAN_max = {
-	ENG = { release = CAN }
+	ENG = {
+		release = CAN
+	}
 	CAN = {
 		drop_cosmetic_tag = yes
 		set_cosmetic_tag = CAN_north_america_dominion
@@ -363,7 +415,9 @@ CAN_max = {
 			limit = {
 				is_core_of = USA
 			}
-			CAN = { transfer_state = PREV }
+			CAN = {
+				transfer_state = PREV
+			}
 			add_core_of = PREV
 		}
 	}
@@ -413,7 +467,9 @@ ENG_fed = {
 		every_state = {
 			limit = {
 				is_core_of = SAF
-				NOT = { state = 275 }
+				NOT = {
+					state = 275
+				}
 			}
 			add_core_of = ENG
 		}
@@ -476,9 +532,15 @@ ENG_mxf = {
 	SAF_max = yes
 	ENG_fed = yes
 	ENG = {
-		113 = { add_core_of = ENG }
-		134 = { add_core_of = ENG }
-		135 = { add_core_of = ENG }
+		113 = {
+			add_core_of = ENG
+		}
+		134 = {
+			add_core_of = ENG
+		}
+		135 = {
+			add_core_of = ENG
+		}
 		transfer_core = yes
 	}
 }
@@ -486,7 +548,9 @@ ENG_mxf = {
 ENG_max = {
 	FRA_max = yes
 	ENG_mxf = yes
-	ENG = { activate_decision = form_european_union }
+	ENG = {
+		activate_decision = form_european_union
+	}
 	every_state = {
 		limit = {
 			is_core_of = FRA
@@ -502,7 +566,10 @@ ENG_max = {
 		}
 	}
 	ENG = {
-		annex_country = { target = FRA transfer_troops = yes }
+		annex_country = {
+			target = FRA
+			transfer_troops = yes
+		}
 		set_cosmetic_tag = FRA_UK
 		transfer_core = yes
 	}
@@ -511,13 +578,6 @@ ENG_max = {
 ITA_rmn = {
 	ITA = {
 		activate_decision = form_roman_empire
-		every_state = {
-			limit = {
-				is_core_of = PREV
-				NOT = { is_core_of = GRE}
-			}
-			PREV = { transfer_state = PREV }
-		}
 	}
 }
 
@@ -546,11 +606,12 @@ YUG_max = {
 			GRE = {
 				activate_decision = byz_triumph_for_italy
 			}
-
 			every_state = {
 				limit = {
 					BUL_is_balkan_state = yes
-					NOT = { is_core_of = BUL }
+					NOT = {
+						is_core_of = BUL
+					}
 				}
 				hidden_effect = {
 					add_core_of = BUL
@@ -562,24 +623,28 @@ YUG_max = {
 					}
 				}
 			}
-
 			every_other_country = {
 				limit = {
 					BUL_is_balkan_nation = yes
-					NOT = { tag = YUG }
+					NOT = {
+						tag = YUG
+					}
 				}
 				every_unit_leader = {
 					set_nationality = BUL
 				}
-				BUL = { annex_country = { target = PREV transfer_troops = yes } }
+				BUL = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
 			}
-			
-			
 			set_country_flag = BUL_ubf_flag
 			BUL_set_appropriate_cosmetic_tag = yes
-
-			BUL = { transfer_core = yes }
-
+			BUL = {
+				transfer_core = yes
+			}
 			every_owned_state = {
 				limit = {
 					OR = {
@@ -588,11 +653,14 @@ YUG_max = {
 							modifier = turanist_assimilation
 						}
 					}
-					NOT = { is_core_of = BUL }
+					NOT = {
+						is_core_of = BUL
+					}
 				}
-				TUR = { transfer_state = PREV }
+				TUR = {
+					transfer_state = PREV
+				}
 			}
-
 			every_owned_State = {
 				set_demilitarized_zone = no
 			}
@@ -601,7 +669,7 @@ YUG_max = {
 			activate_decision = form_austria_hungary
 		}
 		every_state = {
-			limit = { 
+			limit = {
 				OR = {
 					is_core_of = HUN
 					is_core_of = BUL
@@ -628,7 +696,10 @@ YUG_max = {
 
 release_slv = {
 	release = SLV
-	set_autonomy = { target = SLV autonomy_state = autonomy_integrated_puppet }
+	set_autonomy = {
+		target = SLV
+		autonomy_state = autonomy_integrated_puppet
+	}
 }
 
 add_max_comp = {
@@ -657,7 +728,7 @@ GER_hre = {
 No_unit = {
 	every_state = {
 		every_country = {
-			delete_unit = { 
+			delete_unit = {
 				state = PREV
 				disband = yes
 			}
@@ -672,17 +743,28 @@ ENG_enforce_loyalty_all = {
 		}
 		clr_country_flag = ENG_abdication_crisis_dominion_will_leave
 		set_country_flag = ENG_abdication_crisis_dominion_will_stay
-		CAN = { CAN_enforce_loyalty = yes }
-		SAF = { SAF_enforce_loyalty = yes }
-		NZL = { NZL_enforce_loyalty = yes }
-		AST = { AST_enforce_loyalty = yes }
-		RAJ = { RAJ_enforce_loyalty = yes }
+		CAN = {
+			CAN_enforce_loyalty = yes
+		}
+		SAF = {
+			SAF_enforce_loyalty = yes
+		}
+		NZL = {
+			NZL_enforce_loyalty = yes
+		}
+		AST = {
+			AST_enforce_loyalty = yes
+		}
+		RAJ = {
+			RAJ_enforce_loyalty = yes
+		}
 	}
 }
 
 GDC_max = {
 	every_state = {
 		limit = {
+			should_initiate_resistance = yes
 			OR = {
 				AND = {
 					NOT = {
@@ -811,7 +893,6 @@ restore_ww1_map = {
 			transfer_state = PREV
 		}
 	}
-
 	#AUS
 	AUS = {
 		activate_decision = form_austria_hungary
@@ -829,11 +910,9 @@ restore_ww1_map = {
 		release = MNT
 		release = SER
 	}
-
 	GRE = {
 		transfer_state = 164
 	}
-
 	# TUR
 	every_state = {
 		limit = {
@@ -853,7 +932,6 @@ restore_ww1_map = {
 			add_state_core = PREV
 		}
 	}
-
 	#ENG
 	every_state = {
 		limit = {
@@ -864,9 +942,7 @@ restore_ww1_map = {
 			add_state_core = PREV
 		}
 	}
-
 	#SOV
-
 	every_state = {
 		limit = {
 			OR = {
@@ -888,7 +964,6 @@ restore_ww1_map = {
 			add_state_core = PREV
 		}
 	}
-
 	#MAN
 	every_state = {
 		limit = {
@@ -921,7 +996,9 @@ restore_ww1_map = {
 	}
 	MAN = {
 		set_cosmetic_tag = MAN_restored
-		set_capital = { state = 608 }
+		set_capital = {
+			state = 608
+		}
 		overlord = {
 			set_autonomy = {
 				target = MAN
@@ -929,7 +1006,6 @@ restore_ww1_map = {
 			}
 		}
 	}
-	
 }
 
 POL_SLA = {
@@ -990,16 +1066,26 @@ POL_max = {
 			remove_core_of = KYR
 		}
 	}
-
 	POL = {
 		activate_decision = form_commonwealth
-		67 = { add_core_of = PREV }
-		66 = { add_core_of = PREV }
-		68 = { add_core_of = PREV }
-		63 = { add_core_of = PREV }
-		5 = { add_core_of = PREV }
-		763 = { add_core_of = PREV }
-
+		67 = {
+			add_core_of = PREV
+		}
+		66 = {
+			add_core_of = PREV
+		}
+		68 = {
+			add_core_of = PREV
+		}
+		63 = {
+			add_core_of = PREV
+		}
+		5 = {
+			add_core_of = PREV
+		}
+		763 = {
+			add_core_of = PREV
+		}
 		537 = {
 			add_core_of = PREV
 		}
@@ -1106,21 +1192,34 @@ ITA_core = {
 			transfer_state = PREV
 		}
 	}
-
 	ITA = {
-		country_event = { id = BBA_italy_anti_colonialism_events.52 }
-		country_event = { id = BBA_italy_anti_colonialism_events.54 }
-		country_event = { id = BBA_italy_anti_colonialism_events.56 }
-		country_event = { id = BBA_italy_anti_colonialism_events.58 }
-		country_event = { id = BBA_italy_anti_colonialism_events.60 }
-		country_event = { id = BBA_italy_anti_colonialism_events.62 }
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.52
+		}
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.54
+		}
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.56
+		}
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.58
+		}
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.60
+		}
+		country_event = {
+			id = BBA_italy_anti_colonialism_events.62
+		}
 		transfer_core = yes
 	}
 }
 
 ETH_africa_union = {
 	every_state = {
-		limit = {is_on_continent = africa}
+		limit = {
+			is_on_continent = africa
+		}
 		add_core_of = ETH
 	}
 	ETH = {
@@ -1137,7 +1236,6 @@ No_resource = {
 }
 
 electrify_effect = {
-	
 	every_controlled_state = {
 		limit = {
 			is_fully_controlled_by = ROOT
@@ -1154,8 +1252,9 @@ release_eth = {
 instantiate_collaboration_government = {
 	custom_effect_tooltip = compliance_80_effect_tooltip
 	hidden_effect = {
-		set_variable = { collaboration_formed@var:country_to_initiate = 1 }
-
+		set_variable = {
+			collaboration_formed@var:country_to_initiate = 1
+		}
 		every_core_state = {
 			limit = {
 				is_core_of = var:country_to_initiate
@@ -1163,7 +1262,6 @@ instantiate_collaboration_government = {
 			remove_core_of = var:country_to_initiate
 			set_state_flag = temp_remove
 		}
-
 		if = {
 			# if country_to_initiate does not exist, simply release it as a puppet
 			limit = {
@@ -1171,7 +1269,11 @@ instantiate_collaboration_government = {
 					exists = no
 				}
 			}
-			var:country_to_initiate = { set_variable = { collaboration_formed_by = PREV } }
+			var:country_to_initiate = {
+				set_variable = {
+					collaboration_formed_by = PREV
+				}
+			}
 			release_autonomy = {
 				target = country_to_initiate
 				autonomy_state = autonomy_collaboration_government
@@ -1181,24 +1283,24 @@ instantiate_collaboration_government = {
 		}
 		else = {
 			# if country_to_initiate exists, create a dynamic country as our new puppet
-
 			create_dynamic_country = {
 				original_tag = country_to_initiate
-
-				set_variable = { collaboration_formed_by = PREV }
-				set_temp_variable = { new_country = this }
-
+				set_variable = {
+					collaboration_formed_by = PREV
+				}
+				set_temp_variable = {
+					new_country = this
+				}
 				PREV = {
 					every_controlled_state = {
-						limit = { occupied_country_tag = country_to_initiate }
-
+						limit = {
+							occupied_country_tag = country_to_initiate
+						}
 						var:new_country = {
 							transfer_state = PREV
 						}
 					}
-
 					puppet = new_country
-
 					set_autonomy = {
 						target = new_country
 						autonomy_state = autonomy_collaboration_government
@@ -1207,14 +1309,12 @@ instantiate_collaboration_government = {
 				}
 			}
 		}
-
 		every_core_state = {
 			limit = {
 				has_state_flag = temp_remove
 			}
 			add_core_of = var:country_to_initiate
 		}
-
 	}
 }
 
