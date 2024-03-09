@@ -1,8 +1,5 @@
 transfer_core = {
-	every_state = {
-		limit = {
-			is_core_of = PREV
-		}
+	every_core_state = {
 		PREV = {
 			transfer_state = PREV
 		}
@@ -226,7 +223,7 @@ BUL_uni = {
 				transfer_state = PREV
 			}
 		}
-		every_owned_State = {
+		every_owned_state = {
 			set_demilitarized_zone = no
 		}
 	}
@@ -1227,7 +1224,7 @@ ETH_africa_union = {
 	}
 }
 
-No_resource = {
+no_resource = {
 	every_state = {
 		add_dynamic_modifier = {
 			modifier = disabled_resources
@@ -1322,6 +1319,28 @@ SWI_coring = {
 	every_state = {
 		every_neighbor_state = {
 			add_core_of = SWI
+		}
+	}
+}
+
+BRA_coring = {
+	every_state = {
+		limit = {
+			is_on_continent = south_america
+		}
+		add_core_of = BRA
+	}
+}
+
+transfer_non_core = {
+	every_owned_state = {
+		limit = {
+			NOT = {
+				is_core_of = PREV
+			}
+		}
+		AOI = {
+			transfer_state = PREV
 		}
 	}
 }

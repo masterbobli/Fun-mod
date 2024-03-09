@@ -1,0 +1,12 @@
+disabled_resources = {
+	enable = { always = yes }
+	
+	icon = GFX_modifiers_sabotaged_resource
+	
+	temporary_state_resource_oil = -1000
+	temporary_state_resource_aluminium = -1000
+	temporary_state_resource_rubber = -1000
+	temporary_state_resource_tungsten = -1000
+	temporary_state_resource_steel = -1000
+	temporary_state_resource_chromium = -1000
+}
